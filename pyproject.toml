@@ -1,7 +1,54 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
+[tool.poetry]
+name = "materialx"
+version = "1.0.1"
+description = "Extension pack for Python Markdown. Modified for OUH build processes."
+authors = ["Carl Marshall <572826+marshalc@users.noreply.github.com>"]
+license = "MIT"
+maintainers = ["Carl Marshall <572826+marshalc@users.noreply.github.com>"]
+readme = "README.md"
+homepage = "https://github.com/facelessuser/mkdocs-material-extensions"
+repository = "https://github.com/ouhft/mkdocs-material-extensions.git"
+keywords = ["markdown extensions"]
+classifiers = [
+    'Development Status :: 1.0.1',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Text Processing :: Filters',
+    'Topic :: Text Processing :: Markup :: HTML',
 ]
+include = ["materialx", "*.md"]
+exclude = ["test*", "tools"]
 
-build-backend = "setuptools.build_meta"
+[tool.poetry.dependencies]
+python = "^3.9"
+material = {version = ">=7.0.3", source = "oxnetcnaf01"}
+
+[tool.poetry.dev-dependencies]
+pymdown-extensions = ">=7.0"
+pyspelling = "*"
+flake8 = "*"
+flake8_docstrings = "*"
+pep8-naming = "*"
+flake8-mutable = "*"
+flake8-builtins = "*"
+pytest = "*"
+pytest-cov = "*"
+coverage = "*"
+
+[[tool.poetry.source]]
+name = "oxnetcnaf01"
+url = "https://oxnetcnaf01.oxnet.nhs.uk/nx3/repository/pypi-internal/simple/"
+secondary = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
